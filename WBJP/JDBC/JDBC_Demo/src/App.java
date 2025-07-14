@@ -6,7 +6,7 @@ public class App {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         // Database connection details
-        String url = "jdbc:mysql://localhost:3306/emp";
+        String url = "jdbc:mysql://localhost:3306/database_name"; // Replace with your database name
         String user = "root";
         String password = "";
 
