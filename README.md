@@ -7,6 +7,7 @@ Dive in to discover all my subject-wise projects and practicals, neatly organize
 - **COA/** – Computer Organization & Architecture 🖥️
 - **IML/** – Introduction to Machine Learning 🤖
 - **WBJP/** – Web Based Java Programming 🌐
+- **ES/** - Entrepreneurship and Start 📊
 
 ## 📌 Repository Insights
 This repository serves as a central hub for my diploma coursework, projects, and hands-on practicals.  
