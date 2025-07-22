@@ -3,10 +3,8 @@ package com.example;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 public class HelloWorldServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
