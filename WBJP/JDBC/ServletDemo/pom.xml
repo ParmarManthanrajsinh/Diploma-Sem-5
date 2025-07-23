@@ -4,14 +4,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>TomcatDemo</groupId>
-  <artifactId>TomcatDemo</artifactId>
+  <groupId>simplewebapp</groupId>
+  <artifactId>simplewebapp</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>Tomcat Demo</name>
+  <name>simplewebapp Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://localhost:8080/TomcatDemo/LogoutServlet</url>
+  <url>http://localhost:8080/simplewebapp/LogoutServlet</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,7 +23,7 @@
     <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId> 
+      <artifactId>servlet-api</artifactId>
       <version>2.5</version>
       <scope>provided</scope>
     </dependency>
@@ -37,7 +37,7 @@
   </dependencies>
 
   <build>
-    <finalName>TomcatDemo</finalName>
+    <finalName>simplewebapp</finalName>
     <pluginManagement>
       <plugins>
         <plugin>

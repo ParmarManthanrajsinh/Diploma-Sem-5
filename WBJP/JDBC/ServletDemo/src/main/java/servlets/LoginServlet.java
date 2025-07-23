@@ -13,8 +13,9 @@ import javax.servlet.http.HttpSession;
  * Sample servlet class for login related methods
  */
 public class LoginServlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		request.getRequestDispatcher("link.html").include(request, response);
