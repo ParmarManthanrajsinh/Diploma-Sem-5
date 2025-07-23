@@ -4,5 +4,14 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/MyServlet</url-pattern>
+  </servlet-mapping>
   
 </web-app>
