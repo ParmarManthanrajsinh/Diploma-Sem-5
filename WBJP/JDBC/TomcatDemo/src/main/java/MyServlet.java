@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/MyServlet")
 public class MyServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+
+        String name = getServletConfig().getInitParameter("name");
+
         out.println("<html><body>");
-        out.println("<h1>Hello from MyServlet!</h1>");
+        out.println("<h1>Hello " + name + " from MyServlet!</h1>");
         out.println("</body></html>");
     }
 }
