@@ -1,13 +1,16 @@
 # 🎓 5th Semester Diploma Code Vault
-
 Welcome to my **5th Semester Diploma** code vault! 🚀  
 Dive in to discover all my subject-wise projects and practicals, neatly organized for easy access.
 
 ## 📂 Directory Overview
-- **COA/** – Computer Organization & Architecture 🖥️
-- **IML/** – Introduction to Machine Learning 🤖
-- **WBJP/** – Web Based Java Programming 🌐
-- **ES/** - Entrepreneurship and Start 📊
+
+```
+📦 5th-Semester-Diploma-Code-Vault
+├── 📁 COA/ – Computer Organization & Architecture 🖥️
+├── 📁 IML/ – Introduction to Machine Learning 🤖
+├── 📁 WBJP/ – Web Based Java Programming 🌐
+└── 📁 ES/ - Entrepreneurship and Start 📊
+```
 
 ## 📌 Repository Insights
 This repository serves as a central hub for my diploma coursework, projects, and hands-on practicals.  
