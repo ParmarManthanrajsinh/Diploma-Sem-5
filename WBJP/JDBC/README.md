@@ -10,7 +10,7 @@ Before we begin, make sure you have the following items ready:
 |-----------|---------------|-------------|
 | **Apache Tomcat 9** | [apache-tomcat-9.0.107-windows-x64.zip](https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107-windows-x64.zip) | Web server for running servlets |
 | **Maven Daemon** | [maven-mvnd-1.0.2-windows-amd64.zip](https://dlcdn.apache.org/maven/mvnd/1.0.2/maven-mvnd-1.0.2-windows-amd64.zip) | Fast Maven build tool |
-| **ServletDemo Project** | `ServletDemo.zip` | Your project files |
+| **ServletDemo Project** | [ServletDemo.zip](ServletDemo.zip) | Your project files |
 
 ### 🔌 VS Code Extensions
 
