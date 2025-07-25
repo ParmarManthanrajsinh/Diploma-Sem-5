@@ -8,7 +8,9 @@
 <body>
     <h1>Wellcome to My Simple Tomcat Setup Demo</h1>
 
-    <form action="MyServlet">
+    <form action="MyServlet" method="get">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
         <input type="submit" value="Submit">
     </form>
 

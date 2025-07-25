@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +15,14 @@ public class MyServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        String name = getServletConfig().getInitParameter("name");
+        Cookie c = new Cookie("name", request.getParameter("name"));
+        c.setMaxAge(3600);
+        response.addCookie(c);
+
+        String myname = getServletConfig().getInitParameter("myname");
 
         out.println("<html><body>");
-        out.println("<h1>Hello " + name + " from MyServlet!</h1>");
+        out.println("<h1>Hello " + c.getValue() + " from " + myname + "!</h1>");
         out.println("</body></html>");
     }
 }
