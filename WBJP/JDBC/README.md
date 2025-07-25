@@ -67,6 +67,19 @@ C:\maven-mvnd-1.0.2\bin
 6. Click **New** and add each path for both system and user variables
 7. Click **OK** to save changes
 
+**Note**: Copy the following code:
+
+```xml
+  <role rolename="admin-gui"/>
+  <role rolename="manager-gui"/>
+  <user username="admin" password="admin" roles="admin-gui,manager-gui"/>
+```
+Paste the configuration into `C:\apache-tomcat-9.0.107\conf\tomcat-users.xml` before the closing `</tomcat-users>` tag. 
+
+like below image
+
+![](Screenshots/Tomcat_users.png)
+
 ---
 
 ## 📝 Step 2: Project Setup in VS Code
