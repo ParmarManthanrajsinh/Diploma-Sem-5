@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -24,55 +23,39 @@ public class MyServlet extends HttpServlet {
         dbPassword = getServletConfig().getInitParameter("dbPassword");
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
+
         PrintWriter out = response.getWriter();
 
         out.println("<html><body>");
-        out.println("<h1>Connecting to database...</h1>");
 
-        Connection conn = null;
-        Statement stmt = null;
         try {
+            // Load JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            out.println("<p>Creating connection...</p>");
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            // Establish connection
+            Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT id, name FROM emp");
+
             out.println("<p>Connection successful!</p>");
-
-            stmt = conn.createStatement();
-
-            String sql = "SELECT id, name FROM emp";
-            ResultSet rs = stmt.executeQuery(sql);
-
             out.println("<h2>Query Results:</h2>");
+
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-                out.println("<p>ID: " + id + ", Name: " + name + "</p>");
+                out.printf("<p>ID: %d, Name: %s</p>%n", id, name);
             }
-
-            rs.close();
-            stmt.close();
-            conn.close();
-
+            
         } catch (Exception e) {
             out.println("<p>Error: " + e.getMessage() + "</p>");
             e.printStackTrace(out);
-        } finally {
-            try {
-                if (stmt != null) stmt.close();
-            } catch (Exception e) {
-                // ignore
-            }
-            try {
-                if (conn != null) conn.close();
-            } catch (Exception e) {
-                // ignore
-            }
         }
 
         out.println("</body></html>");
+
     }
 }
