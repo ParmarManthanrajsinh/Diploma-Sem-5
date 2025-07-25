@@ -118,6 +118,7 @@ When prompted to add a server:
 4. Point to your installation: `C:\apache-tomcat-9.0.107`
 
 ![VS Code server configuration dialog](Screenshots/Select_server.png)
+
 ![Server management options in VS Code](Screenshots/example_server_folder.png)
 
 ---
