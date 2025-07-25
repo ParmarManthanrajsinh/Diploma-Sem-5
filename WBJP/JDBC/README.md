@@ -117,8 +117,8 @@ When prompted to add a server:
 3. **Right-click** on your Tomcat server and select **"Start Server"**
 4. Point to your installation: `C:\apache-tomcat-9.0.107`
 
-![VS Code server configuration dialog](/Screenshots/Select_server.png)
-![Server management options in VS Code](/Screenshots/example_server_folder.png)
+![VS Code server configuration dialog](Screenshots/Select_server.png)
+![Server management options in VS Code](Screenshots/example_server_folder.png)
 
 ---
 
@@ -145,20 +145,20 @@ This ensures your WAR file is updated with the latest changes.
 3. **Click on:** "Manager App" (you may need to sign in with username: `admin`)
 4. **Username = admin and password = admin**
 
-![](/Screenshots/Username_and_password.png)
+![](Screenshots/Username_and_password.png)
 
-![Apache Tomcat welcome page with Manager App button](/Screenshots/Manager_App.png)
+![Apache Tomcat welcome page with Manager App button](Screenshots/Manager_App.png)
 
 4. **Locate your application:** Look for `/simplewebapp` in the Applications table
 5. **Click on:** `/simplewebapp` link to access your application
 
-![Tomcat Web Application Manager showing simplewebapp](/Screenshots/goto_simplewebapp.png)
+![Tomcat Web Application Manager showing simplewebapp](Screenshots/goto_simplewebapp.png)
 
 ### 🎉 Success!
 
 You should see your servlet application running with the login page:
 
-![Sample Web Application login page](/Screenshots/Setup_done.png)
+![Sample Web Application login page](Screenshots/Setup_done.png)
 
 **🎊 Congratulations! Your development environment is ready and your application is live!**
 
