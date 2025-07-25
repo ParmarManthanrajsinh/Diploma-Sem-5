@@ -45,6 +45,8 @@ Install these essential extensions in Visual Studio Code:
 3. **Extract ServletDemo Project**
    - Download from: [ServletDemo.zip](ServletDemo.zip)
    
+   ![Click the download icon](Screenshots/Download_ServletDemo.rar.png)
+
    Extract this whenever you want to access your project
 
 ### 🌍 Environment Variables Setup
