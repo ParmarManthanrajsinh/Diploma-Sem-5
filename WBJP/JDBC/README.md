@@ -146,7 +146,7 @@ This ensures your WAR file is updated with the latest changes.
 3. **Click on:** "Manager App" (you may need to sign in with username: `admin`)
 4. **Username = admin and password = admin**
 
-![](Screenshots/Username_and_password.png)
+![Username = admin and password = admin](Screenshots/Username_and_password.png)
 
 ![Apache Tomcat welcome page with Manager App button](Screenshots/Manager_App.png)
 
