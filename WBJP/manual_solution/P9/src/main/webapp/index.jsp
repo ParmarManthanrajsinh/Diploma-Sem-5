@@ -14,23 +14,23 @@
 <body>
     <h1>Enter Your Marks</h1>
     <form action="" method="post">
-        <label for="maths">Maths</label>
+        <label>Maths</label>
         <input type="number" id="marks" name="maths" maxlength="100">
 
         <br>
-        <label for="science">Science</label>
+        <label>Science</label>
         <input type="number" id="science" name="science" maxlength="100">
 
         <br>
-        <label for="english">English</label>
+        <label>English</label>
         <input type="number" id="english" name="english" maxlength="100">
         
         <br>
-        <label for="history">History</label>
+        <label>History</label>
         <input type="number" id="history" name="history" maxlength="100">
         
         <br>
-        <label for="geography">Geography</label>
+        <label>Geography</label>
         <input type="number" id="geography" name="geography" maxlength="100">
         
         <br>
