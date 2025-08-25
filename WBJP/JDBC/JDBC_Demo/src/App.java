@@ -13,8 +13,9 @@ public class App {
         // Establish the connection
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
             System.out.println("Connected to the database!");
+            connection.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 }
