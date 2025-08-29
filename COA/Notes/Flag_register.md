@@ -68,6 +68,3 @@ ADI 01H` → CY = 1.
 **S Z _ A _ P _ C**  → read as **Sign, Zero, (skip), Aux, (skip), Parity, (one), Carry** — helps to recall positions.
 
 ---
-
-*End of Flag Register cheat‑sheet.*
-
