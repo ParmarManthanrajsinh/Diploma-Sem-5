@@ -1,7 +1,4 @@
 # 8085 — Flag Register (Exam Cheat‑Sheet)
-
-**Only the Flag Register — concise, exam‑ready, and easy to memorize.**
-
 ---
 
 ## Bit layout (MSB → LSB)
