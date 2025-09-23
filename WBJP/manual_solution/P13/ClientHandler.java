@@ -7,24 +7,23 @@ public class ClientHandler implements Runnable {
     private BufferedReader in;
     private PrintWriter out;
     private String clientName;
-    
+
     public ClientHandler(Socket socket, ChatServer server) {
         this.clientSocket = socket;
         this.server = server;
     }
-    
+
     @Override
     public void run() {
         try {
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
-            
-            // Ask for client name
+
             out.println("Enter your name:");
             clientName = in.readLine();
             System.out.println(clientName + " joined the chat.");
             server.broadcastMessage(clientName + " joined the chat.", this);
-            
+
             String message;
             while ((message = in.readLine()) != null) {
                 if (message.equals("bye")) {
@@ -33,7 +32,7 @@ public class ClientHandler implements Runnable {
                 System.out.println(clientName + ": " + message);
                 server.broadcastMessage(clientName + ": " + message, this);
             }
-            
+
             server.broadcastMessage(clientName + " left the chat.", this);
             System.out.println(clientName + " left the chat.");
         } catch (IOException e) {
@@ -47,7 +46,7 @@ public class ClientHandler implements Runnable {
             }
         }
     }
-    
+
     public void sendMessage(String message) {
         out.println(message);
     }

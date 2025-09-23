@@ -7,47 +7,48 @@ public class ChatClient {
     private BufferedReader in;
     private PrintWriter out;
     private Scanner scanner;
-    
+
     public void start(String serverAddress, int port) {
         try {
             socket = new Socket(serverAddress, port);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
             scanner = new Scanner(System.in);
-            
-            // Handle incoming messages in a separate thread
-            new Thread(() -> {
+
+            Thread receiveThread = new Thread(() -> {
                 try {
                     String message;
                     while ((message = in.readLine()) != null) {
                         System.out.println(message);
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.err.println("Connection closed.");
                 }
-            }).start();
-            
-            // Send messages
+            });
+            receiveThread.start();
+
             System.out.println("Connected to chat server. Type 'bye' to exit.");
+
             String input;
-            while (!(input = scanner.nextLine()).equals("bye")) {
+            while (true) {
+                input = scanner.nextLine();
                 out.println(input);
+                if ("bye".equalsIgnoreCase(input)) {
+                    break;
+                }
             }
-            
-            // Close connections
-            out.println("bye");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
         } finally {
             try {
-                socket.close();
-                scanner.close();
+                if (socket != null) socket.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println("Error closing socket.");
             }
+            if (scanner != null) scanner.close();
         }
     }
-    
+
     public static void main(String[] args) {
         ChatClient client = new ChatClient();
         client.start("localhost", 8080);
