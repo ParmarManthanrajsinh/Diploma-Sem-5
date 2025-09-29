@@ -1,0 +1,70 @@
+Description,Format,AddressMod,Size,Type of Instruction,Affected Flags,Example
+Move data from source to destination register,"MOV Rd, Rs",Register,1 byte,Data Transfer (Move),None,"MOV A, B"
+Move data to/from memory via HL,"MOV Rd, M / MOV M, Rs",Register Indirect (HL),1 byte,Data Transfer (Move),None,"MOV A, M"
+Move immediate 8-bit to register/memory,"MVI R/M, data8",Immediate,2 bytes,Data Transfer (Load Immediate),None,"MVI C, 56H / MVI M, 3EH"
+Load accumulator from memory (direct),LDA addr16,Direct,3 bytes,Data Transfer (Load),None,LDA 2050H
+Store accumulator to memory (direct),STA addr16,Direct,3 bytes,Data Transfer (Store),None,STA 2050H
+Load accumulator indirect using BC/DE pair,LDAX B / LDAX D,Register Indirect (BC/DE),1 byte,Data Transfer (Load Indirect),None,LDAX B
+Store accumulator indirect using BC/DE pair,STAX B / STAX D,Register Indirect (BC/DE),1 byte,Data Transfer (Store Indirect),None,STAX D
+"Load HL pair direct from memory (L -> L, H -> H)",LHLD addr16,Direct,3 bytes,Data Transfer (Load Register Pair),None,LHLD 2050H
+"Store HL pair direct to memory (L -> addr, H -> addr+1)",SHLD addr16,Direct,3 bytes,Data Transfer (Store Register Pair),None,SHLD 2050H
+Load immediate 16-bit into register pair,"LXI Rp, data16",Immediate (16-bit),3 bytes,Data Transfer (Load Register Pair Immediate),None,"LXI H, 3540H"
+Exchange contents of DE and HL,XCHG,Implicit,1 byte,Data Transfer (Exchange),None,XCHG
+Exchange stack top with HL (exchange TOS & HL),XTHL,Implicit / Stack,1 byte,Data Transfer (Exchange with Stack),None,XTHL
+Copy HL to SP (set stack pointer),SPHL,Implicit,1 byte,Stack/Control,None,SPHL
+Push register pair onto stack (PUSH PSW also pushes flags),PUSH Rp / PUSH PSW,Implicit / Stack,1 byte,Stack,None,PUSH B / PUSH PSW
+Pop stack into register pair (POP PSW loads flags),POP Rp / POP PSW,Implicit / Stack,1 byte,Stack,None (but POP PSW restores flags),POP D / POP PSW
+Copy HL contents into PC (perform jump via HL),PCHL,Implicit,1 byte,Branching / Control,None,PCHL
+Add register/memory to Accumulator,ADD R / ADD M,Register / Register Indirect,1 byte,Arithmetic (Add),"All flags (S,Z,AC,P,CY)",ADD C
+Add immediate 8-bit to Accumulator,ADI data8,Immediate,2 bytes,Arithmetic (Add Immediate),All flags,ADI 56H
+Add register/memory and carry to Accumulator,ADC R / ADC M,Register / Register Indirect,1 byte,Arithmetic (Add with Carry),All flags,ADC M
+Add immediate 8-bit and carry to Accumulator,ACI data8,Immediate,2 bytes,Arithmetic (Add Immediate with Carry),All flags,ACI 56H
+Add 16-bit register pair to HL (HL = HL + Rp),DAD Rp,Register Pair,1 byte,Arithmetic (16-bit Add),Carry (CY) only,DAD B
+Subtract register/memory from Accumulator,SUB R / SUB M,Register / Register Indirect,1 byte,Arithmetic (Subtract),All flags,SUB C
+Subtract immediate 8-bit from Accumulator,SUI data8,Immediate,2 bytes,Arithmetic (Subtract Immediate),All flags,SUI 56H
+Subtract register/memory and borrow (carry) from Accumulator,SBB R / SBB M,Register / Register Indirect,1 byte,Arithmetic (Subtract with Borrow),All flags,SBB M
+Subtract immediate 8-bit and carry from Accumulator,SBI data8,Immediate,2 bytes,Arithmetic (Subtract Immediate with Borrow),All flags,SBI 56H
+Increment register or memory by 1,INR R / INR M,Register / Register Indirect,1 byte,Arithmetic (Increment),All except Carry (CY),INR B / INR M
+Decrement register or memory by 1,DCR R / DCR M,Register / Register Indirect,1 byte,Arithmetic (Decrement),All except Carry (CY),DCR M
+Increment register pair by 1 (16-bit),INX Rp,Register Pair,1 byte,Arithmetic (Increment Pair),None,INX B
+Decrement register pair by 1 (16-bit),DCX Rp,Register Pair,1 byte,Arithmetic (Decrement Pair),None,DCX B
+Decimal Adjust Accumulator for BCD after addition,DAA,Implicit,1 byte,Arithmetic (BCD Adjust),All flags,DAA
+Logical AND register/memory with Accumulator,ANA R / ANA M,Register / Register Indirect,1 byte,Logical (AND),All flags,ANA B
+Logical AND immediate with Accumulator,ANI data8,Immediate,2 bytes,Logical (AND Immediate),All flags,ANI 32H
+Logical OR register/memory with Accumulator,ORA R / ORA M,Register / Register Indirect,1 byte,Logical (OR),All flags,ORA B
+Logical OR immediate with Accumulator,ORI data8,Immediate,2 bytes,Logical (OR Immediate),All flags,ORI 32H
+Logical Exclusive-OR register/memory with Accumulator,XRA R / XRA M,Register / Register Indirect,1 byte,Logical (XOR),All flags,XRA B
+Logical Exclusive-OR immediate with Accumulator,XRI data8,Immediate,2 bytes,Logical (XOR Immediate),All flags,XRI 32H
+Complement Accumulator (bitwise NOT),CMA,Implicit,1 byte,Logical (Complement),None,CMA
+Complement Carry flag (CY <- !CY),CMC,Implicit,1 byte,Logical (Complement Carry),Carry (CY),CMC
+Set Carry flag (CY <- 1),STC,Implicit,1 byte,Logical (Set Carry),Carry (CY),STC
+Compare register/memory with Accumulator (A - R) — affects flags only,CMP R / CMP M,Register / Register Indirect,1 byte,Logical (Compare),All flags (result not stored),CMP C
+Compare immediate 8-bit with Accumulator (A - data8),CPI data8,Immediate,2 bytes,Logical (Compare Immediate),All flags,CPI 32H
+"Rotate Accumulator Left (bit7 -> bit0, bit7 -> CY)",RLC,Implicit,1 byte,Rotate / Logical,Carry (CY),RLC
+"Rotate Accumulator Right (bit0 -> bit7, bit0 -> CY)",RRC,Implicit,1 byte,Rotate / Logical,Carry (CY),RRC
+Rotate Accumulator Left through Carry (CY and A rotate together),RAL,Implicit,1 byte,Rotate / Logical,Carry (CY),RAL
+Rotate Accumulator Right through Carry (CY and A rotate together),RAR,Implicit,1 byte,Rotate / Logical,Carry (CY),RAR
+Input from I/O port into Accumulator,IN port8,I/O Immediate,2 bytes,I/O,None,IN 32H
+Output Accumulator to I/O port,OUT port8,I/O Immediate,2 bytes,I/O,None,OUT 56H
+No operation (waste cycles),NOP,Implicit,1 byte,Machine Control,None,NOP
+Halt processor until reset (stop execution),HLT,Implicit,1 byte,Machine Control,None,HLT
+Unconditional jump to address,JMP addr16,Direct,3 bytes,Branching (Jump),None,JMP 2050H
+Jump if Zero (Z = 1),JZ addr16,Direct,3 bytes,Branching (Conditional Jump),None (uses flags),JZ 2050H
+Jump if Not Zero (Z = 0),JNZ addr16,Direct,3 bytes,Branching (Conditional Jump),None (uses flags),JNZ 2050H
+Jump if Carry (CY = 1),JC addr16,Direct,3 bytes,Branching (Conditional Jump),None (uses flags),JC 2050H
+Jump if No Carry (CY = 0),JNC addr16,Direct,3 bytes,Branching (Conditional Jump),None (uses flags),JNC 2050H
+Jump if Positive (Sign = 0),JP addr16,Direct,3 bytes,Branching (Conditional Jump),None (uses flags),JP 2050H
+Jump if Minus (Sign = 1),JM addr16,Direct,3 bytes,Branching (Conditional Jump),None (uses flags),JM 2050H
+Jump if Parity Odd (P = 0),JPO addr16,Direct,3 bytes,Branching (Conditional Jump),None,JPO 2050H
+Jump if Parity Even (P = 1),JPE addr16,Direct,3 bytes,Branching (Conditional Jump),None,JPE 2050H
+Call subroutine (unconditional),CALL addr16,Direct,3 bytes,Branching (Call),None,CALL SUB
+Conditional Call if Zero (CZ),CZ addr16,Direct,3 bytes,Branching (Conditional Call),None (uses flags),CZ 2050H
+Conditional Call if Not Zero (CNZ),CNZ addr16,Direct,3 bytes,Branching (Conditional Call),None,CNZ 2050H
+Return from subroutine (unconditional),RET,Implicit / Stack,1 byte,Branching (Return),None,RET
+Conditional Return if Zero (RZ),RZ,Implicit / Stack,1 byte,Branching (Conditional Return),None (uses flags),RZ
+Conditional Return if Not Zero (RNZ),RNZ,Implicit / Stack,1 byte,Branching (Conditional Return),None,RNZ
+Restart (software interrupt) to fixed locations (0..7),RST n (0-7),Implicit,1 byte,Interrupt/Call,None,RST 5 (jump to 28H)
+Read Interrupt Mask (RIM) - read interrupt status into A,RIM,Implicit,1 byte,Interrupt Control,None,RIM
+Set Interrupt Mask (SIM) - set interrupt masks from A,SIM,Implicit,1 byte,Interrupt Control,None,SIM
+Enable Interrupts,EI,Implicit,1 byte,Machine Control / Interrupt,None,EI
+Disable Interrupts,DI,Implicit,1 byte,Machine Control / Interrupt,None,DI
