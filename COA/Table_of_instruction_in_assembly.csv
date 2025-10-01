@@ -1,7 +1,6 @@
 # 8085 Instruction Table — Short
 
 > Abbreviations: Reg = Register, Imm = Immediate, Dir = Direct, Imp = Implicit, RP = Register Pair, Stk = Stack, I/O = Input/Output.  
-> Flags: S, Z, AC, P, CY. "—" = none.
 
 | Instruction | Format | Addressing Mode | Size | Type | Affected Flags | Example |
 |---|---:|---|---:|---|---|---|
