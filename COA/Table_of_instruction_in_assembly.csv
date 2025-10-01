@@ -1,31 +1,76 @@
-﻿No,Description,Fmt,Addr,Size,Cat,Ex
-1,Move register to register,"1B, r1, r2",reg,1B,Data Xfer,"MOV A, B"
-2,Move immediate to register,"2B, r, imm",imm,2B,Data Xfer,"MVI B, 0AH"
-3,Load accumulator from memory,"3B, addr",dir,3B,Data Xfer,LDA 2500H
-4,Store accumulator to memory,"3B, addr",dir,3B,Data Xfer,STA 2500H
-5,Load H/L pair from memory,"3B, addr",dir,3B,Data Xfer,LHLD 3000H
-6,Exchange H and L registers,"1B, —",imp,1B,Data Xfer,XCHG
-7,Load 16‑bit immediate to reg‑pair,"3B, rp, imm16",imm,3B,Data Xfer,"LXI H,4000H"
-8,Add register to accumulator,"1B, r",reg,1B,Arithmetic,ADD C
-9,Add immediate data to accumulator,"2B, imm",imm,2B,Arithmetic,ADI 07H
-10,Subtract register from accumulator,"1B, r",reg,1B,Arithmetic,SUB D
-11,Increment register,"1B, r",reg,1B,Arithmetic,INR E
-12,Decrement register,"1B, r",reg,1B,Arithmetic,DCR B
-13,Add H/L pair to HL register pair,"1B, rp",imp,1B,Arithmetic,DAD B
-14,Logical AND register with A,"1B, r",reg,1B,Logical,ANA A
-15,Logical OR register with A,"1B, r",reg,1B,Logical,ORA C
-16,Logical XOR register with A,"1B, r",reg,1B,Logical,XRA D
-17,Complement accumulator,"1B, —",imp,1B,Logical,CMA
-18,Compare register with accumulator,"1B, r",reg,1B,Logical,CMP E
-19,Unconditional jump,"3B, addr",dir,3B,Branch,JMP 1500H
-20,Jump if zero flag set,"3B, addr",dir,3B,Branch,JZ 1100H
-21,Call subroutine,"3B, addr",dir,3B,Branch,CALL 2000H
-22,Return from subroutine,"1B, —",imp,1B,Branch,RET
-23,Push register pair onto stack,"1B, rp",imp,1B,Stack,PUSH H
-24,Pop register pair from stack,"1B, rp",imp,1B,Stack,POP D
-25,Load SP with H/L pair,"1B, —",imp,1B,Stack,SPHL
-26,Read from I/O port,"2B, port",imm,2B,I/O,IN 05H
-27,Write to I/O port,"2B, port",imm,2B,I/O,OUT 06H
-28,Enable interrupts,"1B, —",imp,1B,Machine Ctrl,EI
-29,Disable interrupts,"1B, —",imp,1B,Machine Ctrl,DI
-30,Halt processor,"1B, —",imp,1B,Machine Ctrl,HLT
+# 8085 Instruction Table — Short
+
+> Abbreviations: Reg = Register, Imm = Immediate, Dir = Direct, Imp = Implicit, RP = Register Pair, Stk = Stack, I/O = Input/Output.  
+> Flags: S, Z, AC, P, CY. "—" = none.
+
+| Instruction | Format | Addressing Mode | Size | Type | Affected Flags | Example |
+|---|---:|---|---:|---|---|---|
+| MOV Rd, Rs | Reg | Reg | 1 | Data | — | `MOV A,B` |
+| MOV Rd, M / MOV M, Rs | Reg | RegInd(HL) | 1 | Data | — | `MOV A,M` |
+| MVI R/M, data8 | Imm | Immediate | 2 | Data | — | `MVI C,56H` |
+| LDA addr16 | Dir | Direct | 3 | Data | — | `LDA 2050H` |
+| STA addr16 | Dir | Direct | 3 | Data | — | `STA 2050H` |
+| LDAX B / LDAX D | Reg | RegInd(BC/DE) | 1 | Data | — | `LDAX B` |
+| STAX B / STAX D | Reg | RegInd(BC/DE) | 1 | Data | — | `STAX D` |
+| LHLD addr16 | Dir | Direct | 3 | Data | — | `LHLD 2050H` |
+| SHLD addr16 | Dir | Direct | 3 | Data | — | `SHLD 2050H` |
+| LXI Rp, data16 | RP | Immediate (16-bit) | 3 | Data | — | `LXI H,3540H` |
+| XCHG | Imp | Imp | 1 | Data | — | `XCHG` |
+| XTHL | Imp/Stk | Stack | 1 | Data | — | `XTHL` |
+| SPHL | Imp | Imp | 1 | Control | — | `SPHL` |
+| PUSH Rp / PUSH PSW | Stk | Stack | 1 | Stack | — | `PUSH B` |
+| POP Rp / POP PSW | Stk | Stack | 1 | Stack | — | `POP D` |
+| PCHL | Imp | Imp | 1 | Control | — | `PCHL` |
+| ADD R / ADD M | Reg | Reg / RegInd(HL) | 1 | Arith | `S,Z,AC,P,CY` | `ADD C` |
+| ADI data8 | Imm | Immediate | 2 | Arith | `S,Z,AC,P,CY` | `ADI 56H` |
+| ADC R / ADC M | Reg | Reg / RegInd(HL) | 1 | Arith | `S,Z,AC,P,CY` | `ADC M` |
+| ACI data8 | Imm | Immediate | 2 | Arith | `S,Z,AC,P,CY` | `ACI 56H` |
+| DAD Rp | RP | Reg Pair | 1 | Arith (16-bit) | `CY` | `DAD B` |
+| SUB R / SUB M | Reg | Reg / RegInd(HL) | 1 | Arith | `S,Z,AC,P,CY` | `SUB C` |
+| SUI data8 | Imm | Immediate | 2 | Arith | `S,Z,AC,P,CY` | `SUI 56H` |
+| SBB R / SBB M | Reg | Reg / RegInd(HL) | 1 | Arith | `S,Z,AC,P,CY` | `SBB M` |
+| SBI data8 | Imm | Immediate | 2 | Arith | `S,Z,AC,P,CY` | `SBI 56H` |
+| INR R / INR M | Reg | Reg / RegInd(HL) | 1 | Arith | `S,Z,AC,P` | `INR B` |
+| DCR R / DCR M | Reg | Reg / RegInd(HL) | 1 | Arith | `S,Z,AC,P` | `DCR M` |
+| INX Rp | RP | Reg Pair | 1 | Arith | — | `INX B` |
+| DCX Rp | RP | Reg Pair | 1 | Arith | — | `DCX B` |
+| DAA | Imp | Imp | 1 | Arith (BCD) | `S,Z,AC,P,CY` | `DAA` |
+| ANA R / ANA M | Reg | Reg / RegInd(HL) | 1 | Logic(AND) | `S,Z,AC,P,CY` | `ANA B` |
+| ANI data8 | Imm | Immediate | 2 | Logic(AND) | `S,Z,AC,P,CY` | `ANI 32H` |
+| ORA R / ORA M | Reg | Reg / RegInd(HL) | 1 | Logic(OR) | `S,Z,AC,P,CY` | `ORA B` |
+| ORI data8 | Imm | Immediate | 2 | Logic(OR) | `S,Z,AC,P,CY` | `ORI 32H` |
+| XRA R / XRA M | Reg | Reg / RegInd(HL) | 1 | Logic(XOR) | `S,Z,AC,P,CY` | `XRA B` |
+| XRI data8 | Imm | Immediate | 2 | Logic(XOR) | `S,Z,AC,P,CY` | `XRI 32H` |
+| CMA | Imp | Imp | 1 | Logic | — | `CMA` |
+| CMC | Imp | Imp | 1 | Logic | `CY` | `CMC` |
+| STC | Imp | Imp | 1 | Logic | `CY` | `STC` |
+| CMP R / CMP M | Reg | Reg / RegInd(HL) | 1 | Compare | `S,Z,AC,P,CY` | `CMP C` |
+| CPI data8 | Imm | Immediate | 2 | Compare | `S,Z,AC,P,CY` | `CPI 32H` |
+| RLC | Imp | Imp | 1 | Rotate | `CY` | `RLC` |
+| RRC | Imp | Imp | 1 | Rotate | `CY` | `RRC` |
+| RAL | Imp | Imp | 1 | Rotate | `CY` | `RAL` |
+| RAR | Imp | Imp | 1 | Rotate | `CY` | `RAR` |
+| IN port8 | I/O | I/O | 2 | I/O | — | `IN 32H` |
+| OUT port8 | I/O | I/O | 2 | I/O | — | `OUT 56H` |
+| NOP | Imp | Imp | 1 | Control | — | `NOP` |
+| HLT | Imp | Imp | 1 | Control | — | `HLT` |
+| JMP addr16 | Dir | Direct | 3 | Branch | — | `JMP 2050H` |
+| JZ addr16 | Dir | Direct | 3 | Branch (Z) | — | `JZ 2050H` |
+| JNZ addr16 | Dir | Direct | 3 | Branch (NZ) | — | `JNZ 2050H` |
+| JC addr16 | Dir | Direct | 3 | Branch (C) | — | `JC 2050H` |
+| JNC addr16 | Dir | Direct | 3 | Branch (NC) | — | `JNC 2050H` |
+| JP addr16 | Dir | Direct | 3 | Branch (P) | — | `JP 2050H` |
+| JM addr16 | Dir | Direct | 3 | Branch (M) | — | `JM 2050H` |
+| JPO addr16 | Dir | Direct | 3 | Branch (PO) | — | `JPO 2050H` |
+| JPE addr16 | Dir | Direct | 3 | Branch (PE) | — | `JPE 2050H` |
+| CALL addr16 | Dir | Direct | 3 | Call | — | `CALL SUB` |
+| CZ addr16 | Dir | Direct | 3 | Call (Z) | — | `CZ 2050H` |
+| CNZ addr16 | Dir | Direct | 3 | Call (NZ) | — | `CNZ 2050H` |
+| RET | Imp/Stk | Stack | 1 | Return | — | `RET` |
+| RZ | Imp/Stk | Stack | 1 | Return (Z) | — | `RZ` |
+| RNZ | Imp/Stk | Stack | 1 | Return (NZ) | — | `RNZ` |
+| RST n (0–7) | Imp | Imp | 1 | Restart | — | `RST 5` |
+| RIM | Imp | Imp | 1 | Interrupt Ctrl | — | `RIM` |
+| SIM | Imp | Imp | 1 | Interrupt Ctrl | — | `SIM` |
+| EI | Imp | Imp | 1 | Interrupt | — | `EI` |
+| DI | Imp | Imp | 1 | Interrupt | — | `DI` |
