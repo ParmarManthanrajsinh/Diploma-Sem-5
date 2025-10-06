@@ -235,9 +235,3 @@ Management is commonly broken down into five core functions: **Planning, Organiz
 * **S**taffing — recruit, train, retain talent
 * **T**eaching/Directing (Leading) — motivate & lead people
 * **F**eedback (Controlling) — measure performance & correct
-
----
-
-* Convert this into **one-page printable notes** (PDF) for revision,
-* Make **flashcards** for each topic, or
-* Create a short **mind-map image** showing the relationships between the functions of management.
