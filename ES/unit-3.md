@@ -72,57 +72,8 @@ An economic activity that produces or exchanges goods and services to satisfy hu
 * **Merits:** Aim at social welfare, control of strategic sectors, stability.
 * **Demerits:** Less profit motive, political interference, possible inefficiency.
 
----
-
-**How to choose ownership** — depends on capital needs, liability tolerance, continuity requirements, management skill, tax & legal environment.
 
 ---
-
-**3. Different leadership models (overview + when to use & strengths/weaknesses)**
-
-Leadership theories give frameworks for how leaders behave and influence people. Short summaries:
-
-**a. Trait theory**
-
-* *Idea:* Leaders possess innate traits (confidence, intelligence).
-* *Strength:* Highlights important leader attributes.
-* *Weakness:* Inconsistent—traits alone don’t guarantee leadership success.
-
-**b. Behavioral theory**
-
-* *Idea:* Effective leadership depends on behaviors (task vs people orientation).
-* *Strength:* Actionable — leaders can learn behaviors.
-* *Weakness:* Context (situation) also matters.
-
-**c. Contingency (Situational) theory**
-
-* *Idea:* Best leadership style depends on situation (task complexity, follower maturity). Examples: Fiedler, Hersey-Blanchard.
-* *Strength:* Practical—matches style to context.
-* *Weakness:* Can be complex to diagnose the situation correctly.
-
-**d. Transformational leadership**
-
-* *Idea:* Leaders inspire, motivate, create vision and change.
-* *Strength:* Drives innovation, high commitment.
-* *Weakness:* Requires strong charisma and follow-through.
-
-**e. Transactional leadership**
-
-* *Idea:* Focus on exchanges (rewards/punishments) to manage performance.
-* *Strength:* Clear, efficient for routine tasks.
-* *Weakness:* Less effective for change or creativity.
-
-**f. Servant leadership**
-
-* *Idea:* Leader serves employees, prioritizes their growth.
-* *Strength:* Builds trust, engagement, long-term loyalty.
-* *Weakness:* Can be slower in decision-making for urgent crises.
-
-**g. Charismatic leadership**
-
-* *Idea:* Leader’s personal charm drives loyalty and vision.
-* *Strength:* Inspires followers strongly.
-* *Weakness:* Can create dependency; risk if leader fails.
 
 **When to use which model:**
 
